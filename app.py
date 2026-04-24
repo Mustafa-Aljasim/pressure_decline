@@ -81,7 +81,7 @@ def find_best_column(columns: list[str], aliases: list[str]) -> Optional[str]:
 def build_template_workbook() -> bytes:
     pressure = pd.DataFrame(
         {
-            "well_name": ["RU-553"] * 6,
+            "well_name": ["RU-555"] * 6,
             "date": [
                 "2024-10-01",
                 "2024-11-15",
@@ -95,7 +95,7 @@ def build_template_workbook() -> bytes:
     )
     production = pd.DataFrame(
         {
-            "well_name": ["RU-553"] * 180,
+            "well_name": ["RU-555"] * 180,
             "date": pd.date_range("2024-10-01", periods=180, freq="D"),
             "rate": np.clip(2150 - np.linspace(0, 550, 180), 1100, None),
         }
@@ -116,7 +116,7 @@ def build_demo_inputs() -> UploadedInputs:
     rate = np.clip(2350 - np.linspace(0, 700, len(prod_dates)) + rng.normal(0, 35, len(prod_dates)), 1050, None)
     production = pd.DataFrame(
         {
-            "well_id": ["RU-553"] * len(prod_dates),
+            "well_id": ["RU-555"] * len(prod_dates),
             "date": prod_dates,
             "rate": rate,
         }
@@ -125,7 +125,7 @@ def build_demo_inputs() -> UploadedInputs:
     pressure_dates = pd.date_range("2024-09-10", "2025-06-20", freq="18D")
     pressure = pd.DataFrame(
         {
-            "well_id": ["RU-553"] * len(pressure_dates),
+            "well_id": ["RU-555"] * len(pressure_dates),
             "date": pressure_dates,
             "pressure_psi": 3240 - np.linspace(0, 520, len(pressure_dates)) + rng.normal(0, 18, len(pressure_dates)),
         }
